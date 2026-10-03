@@ -1,0 +1,451 @@
+{
+  "schema": "clarification-questions/v1",
+  "generated_at": "2026-10-03T18:58:00Z",
+  "user_input": "redgine my full web site",
+  "title": "Taherun & Hannan website redesign",
+  "assessment_snapshot": {
+    "intro": "The workspace now contains a standalone wedding-book website, with the prior Next.js source removed:",
+    "bullets": [
+      "One standalone HTML file contains all page markup, CSS, page-turn behavior, and lightbox behavior.",
+      "The site includes an invitation details page, photo gallery, family invitation page, page-turn controls, and two local wedding photos.",
+      "The established visual system uses cream, ivory, gold, charcoal, Cormorant Garamond, Inter, and Great Vibes.",
+      "Prior requests established standalone single-file delivery and detailed responsive checks across mobile, tablet, desktop, portrait, and landscape."
+    ]
+  },
+  "proposed_outcome": "Redesign the complete Taherun & Hannan wedding invitation site in its existing standalone HTML file, using the supplied visual references and confirmed styling direction while retaining the essential wedding information and invitation interactions. Validate layout, scrolling, accessibility, and interactions across the agreed viewport/device matrix.",
+  "scope": [
+    "frontend",
+    "generic"
+  ],
+  "status": "answered",
+  "questions": [
+    {
+      "id": "F1",
+      "kit": "frontend",
+      "field": "target.framework",
+      "title": "Implementation format",
+      "question": "Confirm the implementation format for the redesign.",
+      "importance": "required",
+      "impact": 5,
+      "recommended": "Standalone HTML/CSS/JavaScript (no framework)",
+      "default": null,
+      "prefilled": true,
+      "prefilled_value": "Standalone HTML/CSS/JavaScript (no framework)",
+      "answer": {
+        "value": "Standalone HTML/CSS/JavaScript (no framework)",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Standalone HTML/CSS/JavaScript (no framework)",
+          "label": "Standalone HTML/CSS/JavaScript (no framework)"
+        },
+        {
+          "value": "React",
+          "label": "React"
+        },
+        {
+          "value": "Next.js",
+          "label": "Next.js"
+        },
+        {
+          "value": "Vue",
+          "label": "Vue"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F2",
+      "kit": "frontend",
+      "field": "target.component_library",
+      "title": "UI component library",
+      "question": "Should the single-file redesign use a component library, or keep its current dependency-free HTML/CSS/JavaScript approach?",
+      "importance": "required",
+      "impact": 4,
+      "recommended": "No library; use native HTML/CSS/JavaScript",
+      "default": null,
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Bootstrap 5",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "No library; use native HTML/CSS/JavaScript",
+          "label": "No library; use native HTML/CSS/JavaScript"
+        },
+        {
+          "value": "Bootstrap 5",
+          "label": "Bootstrap 5"
+        },
+        {
+          "value": "Shoelace",
+          "label": "Shoelace"
+        },
+        {
+          "value": "Other",
+          "label": "Other"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F3",
+      "kit": "frontend",
+      "field": "visual.screenshots",
+      "title": "Visual references",
+      "question": "Are the existing mobile screenshot and shared wedding-site browser previews sufficient references for the full redesign? Add screenshots, recordings, or URLs for any views or device states you want represented.",
+      "importance": "required",
+      "impact": 5,
+      "recommended": null,
+      "default": null,
+      "prefilled": true,
+      "prefilled_value": "Existing mobile screenshot and shared previews: http://localhost:3000/memories and http://localhost:3000/wedding-invitation.html",
+      "answer": {
+        "value": "Status: Partially sufficient, with a few recommended additions.\nWhat We Have:\nMobile Screenshots: Good for capturing the core layout of current mobile screens, but we need expanded states (e.g., scrolled views, expanded menus, or interactive elements like RSVP forms).\nWedding-Site Browser Previews: Helpful for establishing the current desktop baseline, but lacking responsive break-point references between mobile and desktop (tablet/iPad views).\nAdditional References Needed / Attached:\nTablet Viewport State: iPad/tablet landscape and portrait screenshots to check layout wrapping.\n\nInteractive States: Screen recordings or direct staging URLs showing hover states, modal pop-ups, and the RSVP submission flow.\n\nInspiration Board / URLs: [Insert link to Pinterest board, Figma file, or competitor references here] to define the desired visual direction for the full redesign.",
+        "source": "user"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "F4",
+      "kit": "frontend",
+      "field": "visual.design_system",
+      "title": "Visual direction",
+      "question": "Which visual direction should guide the redesigned site?",
+      "importance": "required",
+      "impact": 5,
+      "recommended": "Keep the established cream-and-gold wedding palette; refresh layout and visual hierarchy",
+      "default": null,
+      "prefilled": true,
+      "prefilled_value": "Keep the established cream-and-gold wedding palette; refresh layout and visual hierarchy",
+      "answer": {
+        "value": "Status: Partially sufficient, with a few recommended additions.  What We Have:  Mobile Screenshots: Good for capturing the core layout of current mobile screens, but we need expanded states (e.g., scrolled views, expanded menus, or interactive elements like RSVP forms).  Wedding-Site Browser Previews: Helpful for establishing the current desktop baseline, but lacking responsive break-point references between mobile and desktop (tablet/iPad views).  Additional References Needed / Attached:  Tablet Viewport State: iPad/tablet landscape and portrait screenshots to check layout wrapping.  Interactive States: Screen recordings or direct staging URLs showing hover states, modal pop-ups, and the RSVP submission flow.  Inspiration Board / URLs: [Insert link to Pinterest board, Figma file, or competitor references here] to define the desired visual direction for the full redesign.",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Keep the established cream-and-gold wedding palette; refresh layout and visual hierarchy",
+          "label": "Keep the established cream-and-gold wedding palette; refresh layout and visual hierarchy"
+        },
+        {
+          "value": "Refine the gold palette with complementary colors and updated typography",
+          "label": "Refine the gold palette with complementary colors and updated typography"
+        },
+        {
+          "value": "Replace the visual system with a completely new palette and style",
+          "label": "Replace the visual system with a completely new palette and style"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F5",
+      "kit": "frontend",
+      "field": "compliance.accessibility",
+      "title": "Accessibility target",
+      "question": "What accessibility standard should the redesigned site target?",
+      "importance": "recommended",
+      "impact": 3,
+      "recommended": "WCAG 2.2 AA",
+      "default": "WCAG 2.1 AA",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "WCAG 2.2 AA",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "WCAG 2.1 AA",
+          "label": "WCAG 2.1 AA"
+        },
+        {
+          "value": "WCAG 2.2 AA",
+          "label": "WCAG 2.2 AA"
+        },
+        {
+          "value": "No formal target",
+          "label": "No formal target"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F6",
+      "kit": "frontend",
+      "field": "compatibility.browsers",
+      "title": "Browser support",
+      "question": "Which browsers and runtime versions must the redesigned site support?",
+      "importance": "recommended",
+      "impact": 3,
+      "recommended": "Modern evergreen browsers (Chrome, Firefox, Safari, Edge; latest two major versions)",
+      "default": "Modern evergreen (Chrome, Firefox, Safari, Edge — latest 2 major versions)",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Modern evergreen browsers (Chrome, Firefox, Safari, Edge; latest two major versions)",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Modern evergreen browsers (Chrome, Firefox, Safari, Edge; latest two major versions)",
+          "label": "Modern evergreen browsers (Chrome, Firefox, Safari, Edge; latest two major versions)"
+        },
+        {
+          "value": "Current mobile Safari and Chrome only",
+          "label": "Current mobile Safari and Chrome only"
+        },
+        {
+          "value": "Include older browsers; specify versions in Additional Constraints",
+          "label": "Include older browsers; specify versions in Additional Constraints"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F7",
+      "kit": "frontend",
+      "field": "responsive.breakpoints",
+      "title": "Responsive behavior",
+      "question": "Confirm the responsive layout matrix for the redesign.",
+      "importance": "recommended",
+      "impact": 4,
+      "recommended": "Mobile-first, 320–430px phones, 768–1024px tablets, 1280px+ desktop; portrait and landscape",
+      "default": "mobile-first using existing breakpoints detected from codebase",
+      "prefilled": true,
+      "prefilled_value": "Mobile-first, 320–430px phones, 768–1024px tablets, 1280px+ desktop; portrait and landscape",
+      "answer": {
+        "value": "Mobile-first, 320–430px phones, 768–1024px tablets, 1280px+ desktop; portrait and landscape",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Mobile-first, 320–430px phones, 768–1024px tablets, 1280px+ desktop; portrait and landscape",
+          "label": "Mobile-first, 320–430px phones, 768–1024px tablets, 1280px+ desktop; portrait and landscape"
+        },
+        {
+          "value": "Use the existing breakpoints and layout behavior",
+          "label": "Use the existing breakpoints and layout behavior"
+        },
+        {
+          "value": "Other; describe in Additional Constraints",
+          "label": "Other; describe in Additional Constraints"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F8",
+      "kit": "frontend",
+      "field": "i18n.locales",
+      "title": "Languages",
+      "question": "Which languages should the redesigned site support?",
+      "importance": "optional",
+      "impact": 2,
+      "recommended": "Preserve current English content and Arabic Bismillah",
+      "default": "preserve current locales; keep existing i18n library if present",
+      "prefilled": true,
+      "prefilled_value": "Preserve current English content and Arabic Bismillah",
+      "answer": {
+        "value": "Preserve current English content and Arabic Bismillah",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Preserve current English content and Arabic Bismillah",
+          "label": "Preserve current English content and Arabic Bismillah"
+        },
+        {
+          "value": "English only",
+          "label": "English only"
+        },
+        {
+          "value": "Add more languages; specify them in Additional Constraints",
+          "label": "Add more languages; specify them in Additional Constraints"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F9",
+      "kit": "frontend",
+      "field": "state_mgmt.preference",
+      "title": "Interaction state",
+      "question": "How should page-turn, sound, and lightbox interaction state be managed?",
+      "importance": "optional",
+      "impact": 2,
+      "recommended": "Keep lightweight native JavaScript state in the standalone file",
+      "default": "preserve existing pattern if identifiable; otherwise recommend minimal (component state + server-state library)",
+      "prefilled": true,
+      "prefilled_value": "Keep lightweight native JavaScript state in the standalone file",
+      "answer": {
+        "value": "Keep lightweight native JavaScript state in the standalone file",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Keep lightweight native JavaScript state in the standalone file",
+          "label": "Keep lightweight native JavaScript state in the standalone file"
+        },
+        {
+          "value": "Adopt a framework state library",
+          "label": "Adopt a framework state library"
+        },
+        {
+          "value": "Other; specify in Additional Constraints",
+          "label": "Other; specify in Additional Constraints"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "F10",
+      "kit": "frontend",
+      "field": "routing.preference",
+      "title": "Navigation strategy",
+      "question": "What navigation and routing strategy should the redesigned site use?",
+      "importance": "optional",
+      "impact": 2,
+      "recommended": "Keep one standalone HTML file with in-page book navigation and existing links",
+      "default": "use the de-facto router for the chosen target framework",
+      "prefilled": true,
+      "prefilled_value": "Keep one standalone HTML file with in-page book navigation and existing links",
+      "answer": {
+        "value": "Keep one standalone HTML file with in-page book navigation and existing links",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Keep one standalone HTML file with in-page book navigation and existing links",
+          "label": "Keep one standalone HTML file with in-page book navigation and existing links"
+        },
+        {
+          "value": "Use separate static HTML pages",
+          "label": "Use separate static HTML pages"
+        },
+        {
+          "value": "Reintroduce a framework router",
+          "label": "Reintroduce a framework router"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "G1",
+      "kit": "generic",
+      "field": "success.definition",
+      "title": "Definition of done",
+      "question": "What outcomes must be true for you to consider the full-site redesign successful?",
+      "importance": "required",
+      "impact": 5,
+      "recommended": null,
+      "default": "feature parity with the current system; all existing user-facing behaviors preserved",
+      "prefilled": true,
+      "prefilled_value": "A complete visual redesign in the standalone HTML file; preserve the couple, event details, family message, venue directions, gallery/lightbox, book navigation and page-turn; no clipped content or horizontal overflow on requested phone/tablet/desktop widths and orientations.",
+      "answer": {
+        "value": "A complete visual redesign in the standalone HTML file; preserve the couple, event details, family message, venue directions, gallery/lightbox, book navigation and page-turn; no clipped content or horizontal overflow on requested phone/tablet/desktop widths and orientations.",
+        "source": "user"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "G2",
+      "kit": "generic",
+      "field": "out_of_scope",
+      "title": "Out-of-scope changes",
+      "question": "Are there any pages, content, or behaviors that must not be changed as part of the redesign?",
+      "importance": "recommended",
+      "impact": 3,
+      "recommended": null,
+      "default": "no explicit exclusions; agent infers from project structure",
+      "prefilled": false,
+      "prefilled_value": null,
+      "answer": {
+        "value": "Here is a tailored response you can use for this section, keeping in mind common elements of a wedding website that usually need to remain untouched during a redesign:\n\nRecommended Answer\nYes, the following elements and sections must remain unchanged during the redesign:\n\nCore Registry Links & Cash Funds: The external URLs, text, and integrations for active gift registries and honeymoon funds must remain intact to prevent broken contribution links.\n\nPrimary Event Details (Date & Core Venue): While the visual layout can change, the official wedding date and primary venue address/location text must stay accurate.\n\nHistorical/Archive Content: Any photo galleries or personal couple backstory text marked as locked/permanent should be preserved in the new layout.",
+        "source": "user"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    },
+    {
+      "id": "G3",
+      "kit": "generic",
+      "field": "existing_tests.posture",
+      "title": "Validation policy",
+      "question": "How should any existing or newly added tests be treated?",
+      "importance": "recommended",
+      "impact": 3,
+      "recommended": "No automated test suite; validate with browser checks",
+      "default": "must pass",
+      "prefilled": true,
+      "prefilled_value": "No automated test suite; validate with browser checks",
+      "answer": {
+        "value": "No automated test suite; validate with browser checks",
+        "source": "user"
+      },
+      "depends_on": null,
+      "options": [
+        {
+          "value": "Existing tests must pass; add focused coverage for redesigned layouts and interactions",
+          "label": "Existing tests must pass; add focused coverage for redesigned layouts and interactions"
+        },
+        {
+          "value": "Existing tests may be replaced with equivalent coverage",
+          "label": "Existing tests may be replaced with equivalent coverage"
+        },
+        {
+          "value": "No automated test suite; validate with browser checks",
+          "label": "No automated test suite; validate with browser checks"
+        }
+      ],
+      "allow_other": true,
+      "type": "single_select"
+    },
+    {
+      "id": "G5",
+      "kit": "generic",
+      "field": "constraints.additional",
+      "title": "Additional constraints",
+      "question": "What additional visual-design preferences, constraints, exclusions, dependencies, or compliance requirements should the redesign follow?",
+      "importance": "optional",
+      "impact": 3,
+      "recommended": null,
+      "default": "None beyond the decisions listed in this specification.",
+      "prefilled": true,
+      "prefilled_value": "None beyond the decisions listed in this specification.",
+      "answer": {
+        "value": "None beyond the decisions listed in this specification.",
+        "source": "user"
+      },
+      "depends_on": null,
+      "type": "text",
+      "options": []
+    }
+  ]
+}
