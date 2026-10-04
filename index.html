@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Inter:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
@@ -1057,12 +1057,110 @@
     .nav-button:disabled {
       color: #5e625c;
     }
+
+    /* ---- Invitation card image page ---- */
+    .card-figure {
+      width: min(100%, 64rem);
+      margin: 0 auto;
+      padding: 0.5rem;
+      border: 1px solid rgb(181 139 75 / 52%);
+      border-radius: 0.55rem;
+      background: rgb(255 253 248 / 86%);
+      box-shadow: 0 1.5rem 3rem rgb(32 56 47 / 12%);
+      cursor: zoom-in;
+      overflow: hidden;
+      transition: transform 0.25s ease;
+      touch-action: manipulation;
+    }
+
+    .card-figure:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .card-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 0.3rem;
+      transform-origin: center center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+    }
+
+    .card-figure.is-zoomed {
+      cursor: zoom-out;
+      transform: scale(1.02);
+    }
+
+    .card-figure.is-zoomed img {
+      transform: scale(1.9);
+      box-shadow: 0 1.5rem 3rem rgb(32 56 47 / 18%);
+    }
+
+    /* ---- Language toggle (Bangla / English) ---- */
+    /* Reuses the existing sound-button look; only placed on the left side. */
+    .lang-button {
+      right: auto;
+      left: clamp(1rem, 5vw, 4rem);
+    }
+
+    /* Always white, in every state (Bootstrap's .btn would otherwise change it on hover/focus/tap). */
+    .lang-button,
+    .lang-button:hover,
+    .lang-button:focus,
+    .lang-button:focus-visible,
+    .lang-button:active,
+    .lang-button.active {
+      background: #ffffff;
+      background-color: #ffffff;
+      color: var(--forest);
+      border-color: rgb(181 139 75 / 65%);
+    }
+
+    @media (min-width: 768px) {
+      .lang-button {
+        left: max(2rem, calc((100vw - 1100px) / 2));
+      }
+    }
+
+    /* Great Vibes / Cormorant / Inter have no Bangla glyphs, so Bangla text uses
+       Hind Siliguri. Colors, sizes, weights and layout are untouched. */
+    html[lang="bn"] body,
+    html[lang="bn"] .brand,
+    html[lang="bn"] .story,
+    html[lang="bn"] .event-card h2,
+    html[lang="bn"] .invite-subtitle,
+    html[lang="bn"] .family-card h1,
+    html[lang="bn"] .family-message,
+    html[lang="bn"] .family-names,
+    html[lang="bn"] .family-note,
+    html[lang="bn"] .page-count,
+    html[lang="bn"] .intro h1 {
+      font-family: "Hind Siliguri", "Noto Sans Bengali", "Kalpurush", "Nirmala UI", sans-serif;
+    }
+
+    html[lang="bn"] .section-eyebrow,
+    html[lang="bn"] .event-label,
+    html[lang="bn"] .map-link,
+    html[lang="bn"] .home-link,
+    html[lang="bn"] .family-signoff,
+    html[lang="bn"] .sound-button {
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="bn"] .intro h1 {
+      line-height: 1.3;
+    }
+
+    html[lang="bn"] .family-message {
+      line-height: 1.7;
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="Taherun and Hannan">Taherun <span>&amp;</span> Hannan</a>
-    <a class="home-link" href="/">Back to invitation</a>
+    <a class="brand" href="/" aria-label="Taherun and Hannan" data-i18n="brand">Taherun <span>&amp;</span> Hannan</a>
   </header>
 
   <main class="book-stage" aria-label="Wedding memory book">
@@ -1073,27 +1171,30 @@
             <div class="cover-mark" aria-hidden="true">T<span>&amp;</span>R</div>
             <section class="intro">
               <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-              <p class="section-eyebrow">WITH JOY IN OUR HEARTS</p>
-              <h1>Taherun <span aria-hidden="true">&amp;</span> Hannan (Rakib)</h1>
-              <p class="invite-subtitle">You are warmly invited</p>
-              <p class="story">Two lives, two families, and a beautiful promise. Join us as Taherun Nesa Shawon and Syed Md. Hannan (Rakib) begin this joyful new chapter together.</p>
+              <p class="section-eyebrow" data-i18n="eyebrow1">WITH JOY IN OUR HEARTS</p>
+              <h1 data-i18n="names">Taherun <span aria-hidden="true">&amp;</span> Hannan (Rakib)</h1>
+              <p class="invite-subtitle" data-i18n="subtitle">You are warmly invited</p>
+              <p class="story" data-i18n="story">Two lives, two families, and a beautiful promise. Join us as Taherun Nesa Shawon and Syed Md. Hannan (Rakib) begin this joyful new chapter together.</p>
               <div class="event-details" aria-label="Wedding details">
                 <article class="event-card">
                   <span class="event-icon" aria-hidden="true">✦</span>
-                  <p class="event-label">WHEN</p>
-                  <h2>16 Oct 2026</h2>
-                  <p>2:00 PM</p>
+                  <p class="event-label" data-i18n="when">WHEN</p>
+                  <h2 data-i18n="date">16 Oct 2026</h2>
+                  <p data-i18n="time">2:00 PM</p>
                 </article>
                 <article class="event-card">
                   <span class="event-icon" aria-hidden="true">⌖</span>
-                  <p class="event-label">WHERE</p>
-                  <h2>EDEN PALACE</h2>
-                  <p>05, Block H, P.C. Road, Halisohor, Chattogram</p>
+                  <p class="event-label" data-i18n="where">WHERE</p>
+                  <h2 data-i18n="venue">EDEN PALACE</h2>
+                  <p data-i18n="address">05, Block H, P.C. Road, Halisohor, Chattogram</p>
                 </article>
               </div>
-              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=EDEN%20PALACE%2C%2005%2C%20Block%3A%20H%2C%20P.C%20Road%2C%20Halisohor%2C%20Chattogram" target="_blank" rel="noreferrer">Get directions <span aria-hidden="true">↗</span></a>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=EDEN%20PALACE%2C%2005%2C%20Block%3A%20H%2C%20P.C%20Road%2C%20Halisohor%2C%20Chattogram" target="_blank" rel="noreferrer" data-i18n="directions">Get directions <span aria-hidden="true">↗</span></a>
             </section>
           </div>
+          <figure class="card-figure">
+            <img src="Final.png" alt="Wedding invitation card: Taherun Nesa Shawon and Syed Md. Hannan (Rakib), 16 Oct 2026, Friday 2:00 PM, Eden Palace Community Center, Halishahar, Chattogram" loading="lazy">
+          </figure>
         </div>
         <div class="page-shadow" aria-hidden="true"></div>
       </div>
@@ -1104,32 +1205,33 @@
       <div class="page-face page-front">
         <div class="page-scroll family-page">
           <section class="family-card">
-            <p class="section-eyebrow">A NOTE FROM OUR FAMILY</p>
-            <h1>With love, from our families</h1>
+            <p class="section-eyebrow" data-i18n="eyebrow2">A NOTE FROM OUR FAMILY</p>
+            <h1 data-i18n="familyTitle">With love, from our families</h1>
             <div class="family-message">
-              <p>With grateful hearts and immense joy,</p>
-              <p>the parents and brother of the bride</p>
-              <p>invite you to celebrate the Wedding Program of</p>
-              <p class="family-names">Taherun Nesa Shawon &amp; Syed Md. Hannan (Rakib)</p>
+              <p data-i18n="msg1">With grateful hearts and immense joy,</p>
+              <p data-i18n="msg2">the parents and brother of the bride</p>
+              <p data-i18n="msg3">invite you to celebrate the Wedding Program of</p>
+              <p class="family-names" data-i18n="familyNames">Taherun Nesa Shawon &amp; Syed Md. Hannan (Rakib)</p>
             </div>
-            <p class="family-note">With love,</p>
-            <p class="family-signoff">The Bride&apos;s Parents &amp; Brother</p>
-            <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=EDEN%20PALACE%2C%2005%2C%20Block%3A%20H%2C%20P.C%20Road%2C%20Halisohor%2C%20Chattogram" target="_blank" rel="noreferrer">Get directions <span aria-hidden="true">↗</span></a>
+            <p class="family-note" data-i18n="withLove">With love,</p>
+            <p class="family-signoff" data-i18n="signoff">The Bride&apos;s Parents &amp; Brother</p>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=EDEN%20PALACE%2C%2005%2C%20Block%3A%20H%2C%20P.C%20Road%2C%20Halisohor%2C%20Chattogram" target="_blank" rel="noreferrer" data-i18n="directions">Get directions <span aria-hidden="true">↗</span></a>
           </section>
         </div>
         <div class="page-shadow" aria-hidden="true"></div>
       </div>
       <div class="page-face page-back" aria-hidden="true"></div>
     </article>
+
   </main>
 
-  <button class="sound-button btn" type="button" aria-pressed="false">Sound off</button>
+  <button class="sound-button lang-button btn" type="button" aria-label="Switch language" lang="bn">বাংলা</button>
   <nav class="book-controls" aria-label="Book navigation">
-    <button class="nav-button btn" type="button" data-direction="previous" disabled><span aria-hidden="true">←</span> Previous Page</button>
+    <button class="nav-button btn" type="button" data-direction="previous" data-i18n="prev" disabled><span aria-hidden="true">←</span> Previous Page</button>
     <p class="page-count" aria-live="polite">1 <span>/</span> 2</p>
-    <button class="nav-button btn" type="button" data-direction="next">Next Page <span aria-hidden="true">→</span></button>
+    <button class="nav-button btn" type="button" data-direction="next" data-i18n="next">Next Page <span aria-hidden="true">→</span></button>
   </nav>
-  <p class="book-hint">Scroll anywhere to explore, swipe sideways, or use ← / →</p>
+  <p class="book-hint" data-i18n="hint">Scroll anywhere to explore, swipe sideways, or use ← / →</p>
 
   <script>
     (() => {
@@ -1138,15 +1240,108 @@
       const previousButton = document.querySelector('[data-direction="previous"]');
       const nextButton = document.querySelector('[data-direction="next"]');
       const pageCount = document.querySelector(".page-count");
-      const soundButton = document.querySelector(".sound-button");
+      const langButton = document.querySelector(".lang-button");
+      const cardFigure = document.querySelector(".card-figure");
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       const scrollStates = contentAreas.map((area) => ({ area, target: 0, frame: 0 }));
       let currentPage = 0;
       let turning = false;
       let turningIndex = null;
-      let soundEnabled = false;
-      let audioContext;
       let touchStart;
+      let lang = "en";
+      let imageZoomed = false;
+
+      function toggleCardZoom(forceState) {
+        if (!cardFigure) return;
+        const nextState = typeof forceState === "boolean" ? forceState : !imageZoomed;
+        imageZoomed = nextState;
+        cardFigure.classList.toggle("is-zoomed", imageZoomed);
+        cardFigure.setAttribute("aria-pressed", String(imageZoomed));
+      }
+
+      /* ---------- Bangla / English ---------- */
+      const arrow = '<span aria-hidden="true">↗</span>';
+      const bn = {
+        brand: 'তাহেরুন <span>&amp;</span> হান্নান',
+        eyebrow1: "আনন্দিত হৃদয়ে",
+        names: 'তাহেরুন <span aria-hidden="true">&amp;</span> হান্নান (রাকিব)',
+        subtitle: "আপনাকে আন্তরিকভাবে আমন্ত্রণ জানাচ্ছি",
+        story: "দুটি জীবন, দুটি পরিবার এবং একটি সুন্দর প্রতিশ্রুতি। তাহেরুন নেসা শাওন ও সৈয়দ মোঃ হান্নান (রাকিব)-এর নতুন জীবনের এই আনন্দময় যাত্রায় আমাদের সঙ্গী হোন।",
+        when: "কখন",
+        date: "১৬ অক্টোবর ২০২৬",
+        time: "দুপুর ২:০০ টা",
+        where: "কোথায়",
+        venue: "ইডেন প্যালেস",
+        address: "০৫, ব্লক এইচ, পি.সি. রোড, হালিশহর, চট্টগ্রাম",
+        directions: "দিকনির্দেশনা দেখুন " + arrow,
+        eyebrow2: "আমাদের পরিবারের পক্ষ থেকে",
+        familyTitle: "ভালোবাসায়, আমাদের পরিবারের পক্ষ থেকে",
+        msg1: "কৃতজ্ঞ হৃদয় ও অসীম আনন্দের সাথে,",
+        msg2: "কনের বাবা-মা ও ভাই",
+        msg3: "আপনাকে সাদর আমন্ত্রণ জানাচ্ছেন বিবাহ অনুষ্ঠানে",
+        familyNames: "তাহেরুন নেসা শাওন &amp; সৈয়দ মোঃ হান্নান (রাকিব)",
+        withLove: "ভালোবাসায়,",
+        signoff: "কনের বাবা-মা ও ভাই",
+        prev: '<span aria-hidden="true">←</span> আগের পৃষ্ঠা',
+        next: 'পরের পৃষ্ঠা <span aria-hidden="true">→</span>',
+        hint: "যেকোনো স্থানে স্ক্রল করুন, পাশে সোয়াইপ করুন, অথবা ← / → ব্যবহার করুন",
+      };
+      const en = {};
+      const i18nNodes = [...document.querySelectorAll("[data-i18n]")];
+      i18nNodes.forEach((node) => {
+        const key = node.dataset.i18n;
+        if (!(key in en)) en[key] = node.innerHTML.trim();
+      });
+      const dict = { en, bn };
+      const bnDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+      const num = (n) => (lang === "bn" ? String(n).replace(/\d/g, (d) => bnDigits[d]) : String(n));
+      const t = (key) => dict[lang][key];
+
+      function applyLanguage() {
+        document.documentElement.lang = lang;
+        i18nNodes.forEach((node) => {
+          const key = node.dataset.i18n;
+          node.innerHTML = t(key);
+        });
+        const brand = document.querySelector(".brand");
+        brand.setAttribute("aria-label", lang === "bn" ? "তাহেরুন ও হান্নান" : "Taherun and Hannan");
+        document.title = lang === "bn"
+          ? "তাহেরুন ও হান্নান | বিবাহের আমন্ত্রণ"
+          : "Taherun & Hannan | Wedding Invitation";
+        langButton.textContent = lang === "bn" ? "English" : "বাংলা";
+        langButton.setAttribute("lang", lang === "bn" ? "en" : "bn");
+        langButton.setAttribute("aria-label", lang === "bn" ? "Switch to English" : "বাংলায় দেখুন");
+        updateNavigation();
+        try { localStorage.setItem("invite-lang", lang); } catch (e) { /* storage unavailable */ }
+      }
+
+      langButton.addEventListener("click", () => {
+        lang = lang === "en" ? "bn" : "en";
+        applyLanguage();
+      });
+
+      if (cardFigure) {
+        cardFigure.setAttribute("role", "button");
+        cardFigure.setAttribute("tabindex", "0");
+        cardFigure.setAttribute("aria-label", "Zoom in on the wedding invitation card");
+        cardFigure.setAttribute("aria-pressed", "false");
+
+        cardFigure.addEventListener("click", () => {
+          if (turning) return;
+          toggleCardZoom();
+        });
+
+        cardFigure.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleCardZoom();
+          }
+
+          if (event.key === "Escape" && imageZoomed) {
+            toggleCardZoom(false);
+          }
+        });
+      }
 
       document.addEventListener("wheel", (event) => {
         if (event.ctrlKey || event.deltaY === 0 || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
@@ -1190,7 +1385,7 @@
       function updateNavigation() {
         previousButton.disabled = currentPage === 0 || turning;
         nextButton.disabled = currentPage === pages.length - 1 || turning;
-        pageCount.innerHTML = `${currentPage + 1} <span>/</span> ${pages.length}`;
+        pageCount.innerHTML = `${num(currentPage + 1)} <span>/</span> ${num(pages.length)}`;
         pages.forEach((page, index) => {
           const hidden = index !== currentPage;
           page.setAttribute("aria-hidden", String(hidden));
@@ -1206,34 +1401,6 @@
         });
       }
 
-      function pageSound() {
-        if (!soundEnabled) return;
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) return;
-        audioContext ||= new AudioContextClass();
-        if (audioContext.state === "suspended") void audioContext.resume();
-        const duration = 0.22;
-        const buffer = audioContext.createBuffer(1, Math.floor(audioContext.sampleRate * duration), audioContext.sampleRate);
-        const channel = buffer.getChannelData(0);
-        for (let index = 0; index < channel.length; index += 1) {
-          channel[index] = (Math.random() * 2 - 1) * (1 - index / channel.length);
-        }
-        const source = audioContext.createBufferSource();
-        const filter = audioContext.createBiquadFilter();
-        const gain = audioContext.createGain();
-        source.buffer = buffer;
-        filter.type = "lowpass";
-        filter.frequency.value = 1350;
-        gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.12, audioContext.currentTime + 0.035);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + duration);
-        source.connect(filter);
-        filter.connect(gain);
-        gain.connect(audioContext.destination);
-        source.start();
-        source.stop(audioContext.currentTime + duration);
-      }
-
       function turnPage(direction) {
         if (turning) return;
         const target = direction === "next" ? currentPage : currentPage - 1;
@@ -1241,7 +1408,6 @@
         if (target < 0 || nextPage >= pages.length) return;
         turning = true;
         turningIndex = target;
-        pageSound();
         const turningPage = pages[target];
         turningPage.classList.add("is-turning");
         if (direction === "next") turningPage.classList.add("is-flipped");
@@ -1261,12 +1427,6 @@
 
       previousButton.addEventListener("click", () => turnPage("previous"));
       nextButton.addEventListener("click", () => turnPage("next"));
-      soundButton.addEventListener("click", () => {
-        soundEnabled = !soundEnabled;
-        soundButton.setAttribute("aria-pressed", String(soundEnabled));
-        soundButton.textContent = soundEnabled ? "Sound on" : "Sound off";
-      });
-
       document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowRight") {
           event.preventDefault();
@@ -1296,11 +1456,10 @@
         touchStart = null;
       });
 
-      window.addEventListener("pagehide", () => {
-        if (audioContext) void audioContext.close();
-      }, { once: true });
-
-      updateNavigation();
+      try {
+        if (localStorage.getItem("invite-lang") === "bn") lang = "bn";
+      } catch (e) { /* storage unavailable */ }
+      applyLanguage();
     })();
   </script>
 </body>
